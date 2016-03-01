@@ -1,5 +1,8 @@
 package com.yansm.service;
 
+import java.util.List;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +13,8 @@ import com.yansm.domain.User;
 
 @Service
 public class UserService {
+	private static Logger logger = Logger.getLogger(UserService.class);
+	
 	
 	@Autowired
 	private UserDao userDao;
@@ -32,8 +37,34 @@ public class UserService {
 		loginLog.setUserId(user.getUserId());
 		loginLog.setIp(user.getLastIp());
 		loginLog.setLoginDate(user.getLastVisit());
+		
 		userDao.updateLoginInfo(user);
 		loginLogDao.insertLoginLog(loginLog);
+		
+		userDao.getAllUser();
+	}
+	
+	
+	public List<User> getAllUser(){
+		return userDao.getAllUser();
+	}
+	
+	public void insertUser(User user){
+		
+	    logger.info("用户是："+user);
+	    
+		userDao.insertUser(user);
+	}
+	
+	
+	public void deleteUser(String userId)
+	{
+		userDao.deleteUser(userId);
+	}
+	
+	
+	public User seeUser(String userId){
+		return userDao.findUserByUserId(userId);
 	}
 
 }
