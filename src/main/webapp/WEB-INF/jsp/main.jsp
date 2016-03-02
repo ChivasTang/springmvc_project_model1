@@ -40,7 +40,7 @@
 						<td>
 							<div class="sui-btn-group">
 								<button class="sui-btn btn-danger"><a href="deleteUser/${oneuser.user_id}">删除</a></button>
-								<button class="sui-btn btn-primary"><a href="updateUser/${oneuser.user_id}">修改</a></button>
+								<button class="sui-btn btn-success"><a href="updateUser/${oneuser.user_id}">修改</a></button>
 							</div>
 						</td>
 					</tr>

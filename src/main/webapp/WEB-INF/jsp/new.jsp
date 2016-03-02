@@ -22,13 +22,13 @@
 		<div class="control-group">
 			<label for="inputuserName" class="control-label">用户名：</label>
 			<div class="controls" >
-				<input type="text" name="userName" value=${user.userName}>
+				<input type="text" name="userName" >
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="inputPassword" class="control-label">密码：</label>
 			<div class="controls">
-				<input type="password" name="password" value=${user.password}>
+				<input type="password" name="password" >
 			</div>
 		</div>
 

@@ -18,7 +18,13 @@
 			<div class="span4">
 			<br>
 			<br>
-			<form class="sui-form form-horizontal " action="updateName" method="post">
+			<form class="sui-form form-horizontal " action="../saveUser" method="post">
+			<div class="control-group">
+			<label for="inputuserName" class="control-label">用户编号：</label>
+			<div class="controls" >
+				<input type="text" name="userId" value=${user.userId}>
+			</div>
+		</div>
 		<div class="control-group">
 			<label for="inputuserName" class="control-label">用户名：</label>
 			<div class="controls" >

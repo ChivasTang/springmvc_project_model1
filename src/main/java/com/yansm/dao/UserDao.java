@@ -81,10 +81,10 @@ public class UserDao {
 	}
 	
 	
-	public void updateUser(String userId,String userName,String password){
+	public void updateUser(User user){
 		String sqlStr = "update t_user set user_name=?,password=?"
 				+" where user_id=?";
-		jdbcTemplate.update(sqlStr,userName,password,userId);
+		jdbcTemplate.update(sqlStr,user.getUserName(),user.getPassword(),user.getUserId());
 	}
 	
 	

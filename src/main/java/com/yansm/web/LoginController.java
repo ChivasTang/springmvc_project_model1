@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.Session;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,8 @@ import com.yansm.service.UserService;
 
 @Controller
 public class LoginController {
+	
+	private static Logger logger = Logger.getLogger(LoginController.class);
 	
 	@Autowired
 	private UserService userService;
@@ -103,10 +106,25 @@ public class LoginController {
 	@RequestMapping(value="/updateUser/{userId}")
 	public String updateUser(HttpServletRequest request,@PathVariable String  userId){
 		User user =userService.seeUser(userId);
-		System.out.println("获取的用户是："+user.toString());
-		request.setAttribute("user", user);
+		request.setAttribute("user", user);		
+		return "user";		
+	}
+	
+	
+	@RequestMapping(value="/saveUser")
+	public String saveUser(HttpServletRequest request ,HttpServletResponse response){
 		
-		return "new2";
+		
+		String userName = request.getParameter("userName");
+		String password = request.getParameter("password");
+		String userId = request.getParameter("userId");							
+		User user1 = userService.seeUser(userId);
+				
+		user1.setUserName(userName);
+		user1.setPassword(password);
+
+		userService.saveUser(user1);
+		return "redirect:/main";
 		
 	}
 

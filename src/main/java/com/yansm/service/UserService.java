@@ -50,9 +50,7 @@ public class UserService {
 	}
 	
 	public void insertUser(User user){
-		
-	    logger.info("用户是："+user);
-	    
+			    
 		userDao.insertUser(user);
 	}
 	
@@ -65,6 +63,10 @@ public class UserService {
 	
 	public User seeUser(String userId){
 		return userDao.findUserByUserId(userId);
+	}
+	
+	public void saveUser(User user){
+		userDao.updateUser(user);
 	}
 
 }
