@@ -12,8 +12,18 @@
 </head>
 <body>
 	<div class="sui-container">
-		${user.userName},欢迎您进入springmvc论坛，您当前的积分为${user.credits}; <a
-			href="new">新增</a> <a href="loginOut">退出</a>
+		<h4>${user.userName},欢迎您进入springmvc论坛，您当前的积分为${user.credits};
+		    <button type="submit" class="sui-btn btn-warning"><a href="main">全部</a></button>
+			<button type="submit" class="sui-btn btn-warning"><a href="new">新增</a></button>
+			<button type="submit" class="sui-btn btn-warning"><a href="loginOut">退出</a></button>			
+			<br>
+		
+	</div>
+	<div class="sui-container">
+		<form class="sui-form form-search" action="searchName" method="post">
+			<input type="text" class="input-medium search-query" name="userName">
+			<button type="submit" class="sui-btn btn-info">查询</button>
+		</form>
 	</div>
 	<div class="sui-container">
 		<table class="sui-table table-primary">

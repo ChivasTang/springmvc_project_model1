@@ -104,5 +104,18 @@ public class UserDao {
 				});
 		return user;
 	}
+	
+	
+	public List<User> findUserList(final String userName){
+		String sqlStr = "select user_id,user_name,credits"
+				+" from t_user where user_name=?";
+		
+		Object[] args = new Object[]{userName};
+		
+		List users =	jdbcTemplate.queryForList(sqlStr, args);
+		
+		return users;
+	}
+	
 
 }

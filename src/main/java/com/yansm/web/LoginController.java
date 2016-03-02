@@ -127,5 +127,15 @@ public class LoginController {
 		return "redirect:/main";
 		
 	}
+	
+	@RequestMapping(value="/searchName")
+	public String searchName(HttpServletRequest request ,HttpServletResponse response){
+				
+		String userName = request.getParameter("userName");						
+		List<User> users = userService.findUserList(userName);				
+		request.setAttribute("users", users);
+		
+		return "main";
+	}
 
 }

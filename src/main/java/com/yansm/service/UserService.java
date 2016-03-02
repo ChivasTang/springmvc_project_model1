@@ -68,5 +68,10 @@ public class UserService {
 	public void saveUser(User user){
 		userDao.updateUser(user);
 	}
+	
+	
+	public List<User> findUserList(String userName){
+		return userDao.findUserList(userName);
+	}
 
 }
