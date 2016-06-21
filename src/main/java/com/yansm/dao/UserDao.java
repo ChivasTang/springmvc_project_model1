@@ -34,8 +34,7 @@ public class UserDao {
 		final User user = new User();
 		jdbcTemplate.query(sqlStr, new Object[]{userName},
 				new RowCallbackHandler() {
-					
-					@Override
+
 					public void processRow(ResultSet rs) throws SQLException {
 						user.setUserId(rs.getInt("user_id"));
 						user.setUserName(userName);
@@ -94,8 +93,7 @@ public class UserDao {
 		final User user = new User();
 		jdbcTemplate.query(sqlStr, new Object[]{userId},
 				new RowCallbackHandler() {
-					
-					@Override
+
 					public void processRow(ResultSet rs) throws SQLException {
 						user.setUserId(Integer.valueOf(userId));
 						user.setUserName(rs.getString("user_name"));
